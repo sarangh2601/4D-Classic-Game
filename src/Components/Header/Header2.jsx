@@ -2,7 +2,7 @@ import React from 'react'
 import { MdRefresh } from "react-icons/md";
 const Header2 = () => {
     return (
-        <div className='flex justify-between items-center font-semibold text-white lg:text-sm px-5 sm:text-[10px]'>
+        <div className='flex justify-between items-center font-semibold text-white lg:text-sm px-5 sm:text-[10px] mt-0.5!'>
             <div>
                 <img src="https://classicwin.us/assets/uhi1-kOXnjDm0.png" alt="" className='lg:h-[40px] w-auto sm:h-[15px]' />
             </div>

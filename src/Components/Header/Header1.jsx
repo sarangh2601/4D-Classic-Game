@@ -1,26 +1,53 @@
-import React from 'react'
+import React from "react";
 import { FaPowerOff } from "react-icons/fa";
 
 const Header1 = () => {
-    return (
-        <div className='text-white flex justify-between px-1'>
-            <div className='flex gap-2'>
-                <button className='bg-[#BA9C26] py-1 px-4 rounded-lg sm:text-[10px] sm:h-[20px] lg:w-auto lg:h-auto sm:w-[10px] lg:text-lg items-center justify-center flex'>G</button>
-                <button className='bg-[#BA9C26] py-1 px-4 rounded-lg sm:text-[10px] sm:h-[20px] lg:w-auto lg:h-auto sm:w-[10px] lg:text-lg items-center justify-center flex'>H</button>
-                <button className='bg-[#BA9C26] py-1 px-4 rounded-lg sm:text-[10px] sm:h-[20px] lg:w-auto lg:h-auto sm:w-[10px] lg:text-lg items-center justify-center flex'>3D</button>
-                <button className='bg-[#BA9C26] py-1 px-4 rounded-lg sm:text-[10px] sm:h-[20px] lg:w-auto lg:h-auto sm:w-[10px] lg:text-lg items-center justify-center flex'>4D</button>
-            </div>
-            <div>
-                <h4 className='sm:text-xs lg:text-lg'>16/03/2026 | 17:26:47</h4>
-            </div>
-            <div>
-                <button className="flex items-center lg:text-lg gap-2 bg-red-500 text-white lg:px-6 lg:py-1 rounded-full sm:px-3 sm:py-1 sm:text-[8px]">
-                    <FaPowerOff className='' />
-                    Logout
-                </button>
-            </div>
-        </div>
-    )
-}
+  const buttons = ["G", "H", "3D", "4D"];
 
-export default Header1
+  return (
+    <div
+      className="flex justify-between items-center px-2 text-white 
+                 h-[10vh] 
+                 sm:h-[5vh]! 
+                 md:h-[8vh] 
+                 lg:h-[6vh] mt-1"
+    >
+      {/* LEFT BUTTONS */}
+      <div className="flex gap-2">
+        {buttons.map((btn, index) => (
+          <button
+            key={index}
+            className="bg-[#BA9C26] flex items-center justify-center rounded-lg
+                       px-2 sm:px-3 md:px-4
+                       py-1
+                       text-[10px] sm:text-xs md:text-sm lg:text-base"
+          >
+            {btn}
+          </button>
+        ))}
+      </div>
+
+      {/* CENTER DATE */}
+      <div>
+        <h4 className="text-[10px] sm:text-xs md:text-sm lg:text-base">
+          16/03/2026 | 17:26:47
+        </h4>
+      </div>
+
+      {/* RIGHT LOGOUT */}
+      <div>
+        <button
+          className="flex items-center gap-1 sm:gap-2 bg-red-500 text-white rounded-full
+                     px-2 sm:px-3 md:px-4 lg:px-6
+                     py-1
+                     text-[10px] sm:text-xs md:text-sm lg:text-base"
+        >
+          <FaPowerOff />
+          Logout
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Header1;

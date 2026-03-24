@@ -1,36 +1,85 @@
-import React from 'react'
+import React from "react";
 
 const Section2 = () => {
-    return (
-        <div className='flex gap-1 text-white lg:py-2 sm:py-0.5!'>
-            <div className='flex w-1/7 items-center justify-center lg:gap-5 sm:gap-2 border-1 py-1 bg-blue-700 rounded-lg sm:h-[18px] lg:h-[30px]'>
-                <div className='flex justify-center items-center lg:gap-2 sm:gap-1 bg-blue-900 lg:px-3 sm:px-1 rounded-lg'>
-                    <input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3'/><span className='sm:text-[10px] lg:text-lg'>Odd</span>
-                </div>
-                <div className='flex justify-center items-center lg:gap-2 sm:gap-1 bg-blue-900 lg:px-3 sm:px-1 rounded-lg'>
-                    <input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3'/><span className='sm:text-[10px] lg:text-lg'>Even</span>
-                </div>
-            </div>
-            <div className="bg-gradient-to-r gap-2 from-purple-700 via-blue-600 to-purple-700 flex items-center justify-center text-white lg:px-6! lg:py-2! sm:px-1! sm:py-1! sm:h-[18px] lg:h-[30px] rounded-lg w-1/7 ">
-                <span className='font-semibold lg:text-lg sm:text-[10px]'>All</span><input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3' />
-            </div>
-            <div className='flex w-1/7 bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 rounded-lg items-center justify-center gap-2 border-1 py-1 lg:px-6! lg:py-2! sm:px-1! sm:py-1! sm:h-[18px] lg:h-[30px]'>
-                <input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3' /><span className='font-semibold lg:text-lg sm:text-[10px]'>1000-1999</span>
-            </div>
-            <div className='flex w-1/7 items-center justify-center gap-2 border-1 py-1 bg-white text-black rounded-lg lg:px-6! lg:py-2! sm:px-1! sm:py-1! sm:h-[18px] lg:h-[30px] '>
-                <input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3'/><span className='font-semibold lg:text-lg sm:text-[10px]'>3000-3999</span>
-            </div>
-            <div className='flex w-1/7 items-center justify-center gap-2 border-1 py-1 bg-white text-black rounded-lg lg:px-6! lg:py-2! sm:px-1! sm:py-1! sm:h-[18px] lg:h-[30px]'>
-                <input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3' /><span className='font-semibold lg:text-lg sm:text-[10px]'>5000-5999</span>
-            </div>
-            <div className='flex w-1/7 bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 rounded-lg items-center justify-center gap-2 border-1 py-1 lg:px-6! lg:py-2! sm:px-1! sm:py-1! sm:h-[18px] lg:h-[30px]'>
-                <span className='lg:text-lg sm:text-[10px] font-semibold'>Ind</span><input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3' />
-            </div>
-            <div className='flex w-1/7 bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 rounded-lg items-center justify-center gap-2 border-1 py-1 lg:px-6! lg:py-2! sm:px-1! sm:py-1! sm:h-[18px] lg:h-[30px]'>
-                <span className='lg:text-lg sm:text-[10px] font-semibold'>Mutli</span><input type="checkbox" className='sm:w-2 sm:h-2 lg:w-3 lg:h-3'/>
-            </div>
-        </div>
-    )
-}
+  const items = [
+    {
+      type: "double",
+      options: ["Odd", "Even"],
+      style: "bg-blue-700 text-white",
+      innerStyle: "bg-blue-900",
+    },
+    {
+      label: "All",
+      style: "bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 text-white",
+    },
+    {
+      label: "1000-1999",
+      style: "bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 text-white",
+    },
+    {
+      label: "3000-3999",
+      style: "bg-white text-black",
+    },
+    {
+      label: "5000-5999",
+      style: "bg-white text-black",
+    },
+    {
+      label: "Ind",
+      style: "bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 text-white",
+    },
+    {
+      label: "Multi",
+      style: "bg-gradient-to-r from-purple-700 via-blue-600 to-purple-700 text-white",
+    },
+  ];
 
-export default Section2
+  return (
+    <div
+      className="flex gap-1 w-full 
+                 h-[10vh] 
+                 sm:h-[5vh]! 
+                 md:h-[9vh] 
+                 lg:h-[6vh] mt-1"
+    >
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className={`flex-1 flex items-center justify-center rounded-lg ${item.style}`}
+        >
+          {/* Double Option (Odd/Even) */}
+          {item.type === "double" ? (
+            <div className="flex gap-2">
+              {item.options.map((opt, i) => (
+                <div
+                  key={i}
+                  className={`flex items-center gap-1 px-2 rounded ${item.innerStyle}`}
+                >
+                  <input
+                    type="checkbox"
+                    className="w-2 h-2 sm:w-3 sm:h-3"
+                  />
+                  <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-semibold">
+                    {opt}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <>
+              <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-semibold">
+                {item.label}
+              </span>
+              <input
+                type="checkbox"
+                className="ml-1 w-2 h-2 sm:w-3 sm:h-3"
+              />
+            </>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Section2;
